@@ -6,6 +6,8 @@ import Button from '@material-ui/core/Button';
 import Icon from '@material-ui/core/Icon';
 import store from '../../../store';
 import {handleFormAction} from '../actions/form.actions';
+import SUCCESS from '../../snackbars/components/success.component';
+import ERROR from '../../snackbars/components/error.component';
 
 class Form extends Component {
      constructor(props){
@@ -15,7 +17,8 @@ class Form extends Component {
             email:'',
             date:'',
             hour:'00:00',
-            symptom:''
+            symptom:'',
+            check:null
          }
      }
 
@@ -51,10 +54,30 @@ class Form extends Component {
    }
 
    handleSubmit = () => {
+       const check = this.handleValidateEmail(this.state)
+       console.log(check);
+       if(!check){
+           this.setState({
+               check:false
+           })
+       }
+       else{
+        this.setState({
+            check:true
+        })
+       }
        store.dispatch(handleFormAction(this.state));  
    }  
+
+   handleValidateEmail = (state) => {
+       let validator =  require("email-validator");
+       return validator.validate(state.email);
+    }
      
+
+
    render(){
+       console.log(this.state.check)
     return (
       <div className="item-form">
         <FormControl>
@@ -95,12 +118,12 @@ class Form extends Component {
             color="primary"
             endIcon={<Icon>send</Icon>}
             onClick={this.handleSubmit}
-      >
+        >
         Send
       </Button>
-
-
-      </div>  
+      {this.state.check == false ? <ERROR></ERROR> :''}
+      {this.state.check ? <SUCCESS></SUCCESS>:''}
+      </div> 
        );
    }  
 }
