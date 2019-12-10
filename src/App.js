@@ -1,23 +1,17 @@
 import React from 'react';
-import './App.css';
 import store from './store';
 import Form from './modules/form/components/form.component';
+import Header from './modules/header/components/header.component';
 
 function App() {
   return (
     <div className="container">
       <header>
-        <h1 className="text-center">Coutes Manager</h1>
+        <Header></Header>
       </header>
-
-      <div className="row mt-3">
-          <div className="col-md--6">
-                <Form></Form>
-          </div>
-          <div className="col-md-6">
-              
-          </div>
-      </div>
+      <React.Fragment>
+        <Form></Form>
+      </React.Fragment>
     </div>
   );
 }

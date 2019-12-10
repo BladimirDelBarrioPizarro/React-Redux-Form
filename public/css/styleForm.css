@@ -1,3 +1,15 @@
+.root{
+    height: 100%;
+}
+
+.container{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 100%;
+}
+
 .item-form{
     display: flex;
     align-items: center;
@@ -5,7 +17,7 @@
     justify-content: center;
     flex-wrap: wrap;
 
-    margin-left: 25rem;
+    margin: 1rem;
 }
 
 .item-date-form{
@@ -21,10 +33,30 @@
 }
 
 
+body{
+    margin-bottom: 2rem;
+    padding: 0;
+    font-family: sans-serif;
+    background-image: linear-gradient(-225deg, rgb(32, 207, 230) 0%, rgb(12, 237, 245) 52%, rgb(0, 195, 255) 100%);
+    min-height: 100%;
+  }
+  
+  
+  header h1 {
+    text-align: center;  
+    color: dimgrey ;
+    margin-top: 1rem;
+  }
+  
+
 input[type="date"]{
     margin:0.5rem;
 }
 
 input[type="time"]{
    margin:0.5rem;
+}
+
+button{
+    margin: 2rem;
 }
