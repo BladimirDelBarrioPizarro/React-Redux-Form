@@ -1,10 +1,10 @@
 import React,{Component} from 'react';
 import {connect} from 'react-redux';
+import store from '../../../store';
 import { FormControl,Input,InputLabel,FormHelperText } from '@material-ui/core';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Icon from '@material-ui/core/Icon';
-import store from '../../../store';
 import {handleFormAction} from '../actions/form.actions';
 import SUCCESS from '../../snackbars/components/success.component';
 import ERROR from '../../snackbars/components/error.component';
@@ -55,7 +55,6 @@ class Form extends Component {
 
    handleSubmit = () => {
        const check = this.handleValidateEmail(this.state)
-       console.log(check);
        if(!check){
            this.setState({
                check:false
@@ -65,8 +64,15 @@ class Form extends Component {
         this.setState({
             check:true
         })
-       }
-       store.dispatch(handleFormAction(this.state));  
+        const json = {
+            "name":this.state.name,
+            "email":this.state.email,
+            "date":this.state.date,
+            "hour":this.state.hour,
+            "sympton":this.state.symptom 
+         }
+         store.dispatch(handleFormAction(json));  
+       }      
    }  
 
    handleValidateEmail = (state) => {
@@ -77,7 +83,6 @@ class Form extends Component {
 
 
    render(){
-       console.log(this.state.check)
     return (
       <div className="item-form">
         <FormControl>
@@ -129,7 +134,7 @@ class Form extends Component {
 }
 
 const mapStateToProps = (state) =>({
-    data:state.form,
+    form:state.data,
   }) 
 
 

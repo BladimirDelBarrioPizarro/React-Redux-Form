@@ -10,7 +10,7 @@ export default function form(state = initialState,action){
         case SET_HANDLE_FORM:
             state.data.push(action.payload); 
             return {
-                form: state.data
+                data: state.data
             }
         default:
             return state;
