@@ -16,7 +16,6 @@ class CategoriesProvider extends Component{
         store.dispatch(handleCategories());
     }
 
-
     render(){
         return(
            <CategoriesContext.Provider

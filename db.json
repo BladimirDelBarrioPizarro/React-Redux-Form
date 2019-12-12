@@ -31,22 +31,6 @@
       "date": "2019-12-06",
       "hour": "12:00",
       "symptom": "xxxxxxxxxxx"
-    },
-    {
-      "name": "Bladi",
-      "email": "bladidb@gmail.com",
-      "date": "2019-12-12",
-      "hour": "12:00",
-      "sympton": "vdgdfgdrgtedg",
-      "id": 5
-    },
-    {
-      "name": "Rodri",
-      "email": "rodri@gmail.com",
-      "date": "2019-12-21",
-      "hour": "07:08",
-      "sympton": "mis cojones 33",
-      "id": 6
     }
   ]
 }
